@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: demo
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - demo-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /echo
+      route:
+        - destination:
+            host: quarkus-zta
+            port:
+              number: 80

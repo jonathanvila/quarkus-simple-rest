@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: requestauth
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: quarkus
+  jwtRules:
+    - issuer: https://lemur-2.cloud-iam.com/auth/realms/quarkus-demo
+      jwksUri: https://lemur-2.cloud-iam.com/auth/realms/quarkus-demo/protocol/openid-connect/certs

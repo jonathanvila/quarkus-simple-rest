@@ -1,0 +1,13 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: authpolicy
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: quarkus
+  rules:
+    - from:
+        - source:
+            requestPrincipals: ["*"]
